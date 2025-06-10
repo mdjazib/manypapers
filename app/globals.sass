@@ -12,13 +12,19 @@
     flex-direction: $d
     gap: $g
 
-.root
-    height: 100svh
-    padding: 20px
+body
     @include flex(center,center,column,10px)
+    height: 100svh
+.root
+    @include flex(center,center,column,10px)
+    padding: 20px
+    width: 100%
     form
         @include flex(center,center,column,10px)
         width: 100%
+    .about
+        font-size: 10px
+        max-width: 300px
     input,button
         padding: 10px 12px
         border-radius: 4px
@@ -35,16 +41,42 @@
     flex-wrap: wrap
     justify-content: center
     align-items: center
-    height: 100svh
     gap: 10px
     padding: 20px
     .paper
         background-color: #ededed
         border-radius: 10px
-        width: 250px
-        height: 250px
+        width: 80px
+        height: 80px
         cursor: pointer
         color: #ededed
         @include flex(center,center,row,0px)
+        position: relative
+        overflow: hidden
+        &::before
+            content: ""
+            position: absolute
+            height: 20px
+            width: 20px
+            top: -2px
+            right: -2px
+            border: 2px solid #fff
+            background-color: #b0b0b0
         &[aria-checked="true"]
             color: #000
+            &::before
+                display: none
+.reset
+    position: fixed
+    bottom: -75px
+    left: 50%
+    transform: translateX(-50%)
+    width: 150px
+    height: 150px
+    border: 2px solid #efefef
+    border-radius: 100px
+    @include flex(center,center,row,0px)
+    cursor: pointer
+    color: #3e3e3e
+    span
+        margin-top: -56px
