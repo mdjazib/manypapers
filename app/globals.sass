@@ -1,0 +1,50 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: Arial, Helvetica, sans-serif
+    user-select: none
+
+@mixin flex($j,$a,$d,$g)
+    display: flex
+    justify-content: $j
+    align-items: $a
+    flex-direction: $d
+    gap: $g
+
+.root
+    height: 100svh
+    padding: 20px
+    @include flex(center,center,column,10px)
+    form
+        @include flex(center,center,column,10px)
+        width: 100%
+    input,button
+        padding: 10px 12px
+        border-radius: 4px
+        outline: none
+        width: 100%
+        max-width: 300px
+        border: 1px solid
+    button
+        background-color: #000
+        color: #fff
+        cursor: pointer
+.papers
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    height: 100svh
+    gap: 10px
+    padding: 20px
+    .paper
+        background-color: #ededed
+        border-radius: 10px
+        width: 250px
+        height: 250px
+        cursor: pointer
+        color: #ededed
+        @include flex(center,center,row,0px)
+        &[aria-checked="true"]
+            color: #000
